@@ -1,4 +1,4 @@
-# Zora NFT Editions
+# NFT EDITIONS FORK FOR ARTICLES 
 
 ### What are these contracts?
 1. `SingleEditionMintable`
@@ -35,7 +35,7 @@ Mumbai: https://edition-drop.vercel.app/?network=80001
 note: ~ Deployed with 1.0.1 version of code. Missing public getter for description.
 
 
-**Rinkeby**: [0x85FaDB8Debc0CED38d0647329fC09143d01Af660](https://rinkeby.etherscan.io/address/0x85FaDB8Debc0CED38d0647329fC09143d01Af660)
+**Rinkeby**: [0x95375717500EEcd0c8b27C6916291D70b655f8c5](https://rinkeby.etherscan.io/address/0x95375717500EEcd0c8b27C6916291D70b655f8c5)
 
 note: ~ Deployed with 1.0.1 version of code. Missing public getter for description.
 
@@ -101,6 +101,12 @@ Now that you have a edition, there are multiple options for lazy-minting and sal
 ### Verifying:
 
 `hardhat sourcify --network rinkeby && hardhat etherscan-verify --network rinkeby`
+
+### Etherscan Links:
+
+* Factory Contract: https://rinkeby.etherscan.io/address/0x95375717500EEcd0c8b27C6916291D70b655f8c5
+* Unique Article Contract: https://rinkeby.etherscan.io/address/0x12dc54dd13D95919570De77266Bd6CEA05F36d10#code
+* Shared NFT Logic: https://rinkeby.etherscan.io/address/0x7dFa9011c344AE20C60d03D8A7cc0e69bD346c49
 
 ### Bug Bounty
 5 ETH for any critical bugs that could result in loss of funds.
