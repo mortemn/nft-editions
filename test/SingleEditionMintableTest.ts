@@ -294,7 +294,7 @@ describe("SingleEditionMintable", () => {
           200,
           200
         );
-    
+
         const editionResult = await dynamicSketch.getEditionAtId(1);
         const minterContractNew = (await ethers.getContractAt(
           "SingleEditionMintable",
@@ -302,9 +302,14 @@ describe("SingleEditionMintable", () => {
         )) as SingleEditionMintable;
 
         await minterContractNew.mintEdition(signerAddress);
-        expect((await minterContractNew.royaltyInfo(1, ethers.utils.parseEther("1.0")))[1]).to.be.equal(
-          ethers.utils.parseEther("0.02")
-        );
+        expect(
+          (
+            await minterContractNew.royaltyInfo(
+              1,
+              ethers.utils.parseEther("1.0")
+            )
+          )[1]
+        ).to.be.equal(ethers.utils.parseEther("0.02"));
       });
     });
     it("mints a large batch", async () => {

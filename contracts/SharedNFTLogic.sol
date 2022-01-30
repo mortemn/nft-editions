@@ -34,21 +34,18 @@ contract SharedNFTLogic is IPublicSharedMetadata {
     /// Combines the media data and metadata
     /// @param name Name of NFT in metadata
     /// @param description Description of NFT in metadata
-    /// @param imageUrl URL of image to render for edition
-    /// @param animationUrl URL of animation to render for edition
+    /// @param articleUrl URL of article to render for edition
     /// @param tokenOfEdition Token ID for specific token
     /// @param editionSize Size of entire edition to show
     function createMetadataEdition(
         string memory name,
         string memory description,
-        string memory imageUrl,
-        string memory animationUrl,
+        string memory articleUrl,
         uint256 tokenOfEdition,
         uint256 editionSize
     ) external pure returns (string memory) {
         string memory _tokenMediaData = tokenMediaData(
-            imageUrl,
-            animationUrl,
+            articleUrl,
             tokenOfEdition
         );
         bytes memory json = createMetadataJSON(
@@ -120,49 +117,30 @@ contract SharedNFTLogic is IPublicSharedMetadata {
 
     /// Generates edition metadata from storage information as base64-json blob
     /// Combines the media data and metadata
-    /// @param imageUrl URL of image to render for edition
-    /// @param animationUrl URL of animation to render for edition
+    /// @param articleUrl URL of article to render for edition
     function tokenMediaData(
-        string memory imageUrl,
-        string memory animationUrl,
+        string memory articleUrl,
         uint256 tokenOfEdition
     ) public pure returns (string memory) {
-        bool hasImage = bytes(imageUrl).length > 0;
-        bool hasAnimation = bytes(animationUrl).length > 0;
-        if (hasImage && hasAnimation) {
+        bool hasArticle = bytes(articleUrl).length > 0;
+        if (hasArticle) {
             return
                 string(
                     abi.encodePacked(
-                        'image": "',
-                        imageUrl,
-                        "?id=",
-                        numberToString(tokenOfEdition),
-                        '", "animation_url": "',
-                        animationUrl,
+                        'article": "',
+                        articleUrl,
                         "?id=",
                         numberToString(tokenOfEdition),
                         '", "'
                     )
                 );
         }
-        if (hasImage) {
+        if (hasArticle) {
             return
                 string(
                     abi.encodePacked(
-                        'image": "',
-                        imageUrl,
-                        "?id=",
-                        numberToString(tokenOfEdition),
-                        '", "'
-                    )
-                );
-        }
-        if (hasAnimation) {
-            return
-                string(
-                    abi.encodePacked(
-                        'animation_url": "',
-                        animationUrl,
+                        'article": "',
+                        articleUrl,
                         "?id=",
                         numberToString(tokenOfEdition),
                         '", "'

@@ -42,14 +42,10 @@ contract SingleEditionMintable is
     string public description;
 
     // Media Urls
-    // animation_url field in the metadata
-    string private animationUrl;
-    // Hash for the associated animation
-    bytes32 private animationHash;
-    // Image in the metadata
-    string private imageUrl;
-    // Hash for the associated image
-    bytes32 private imageHash;
+    // Article in the metadata
+    string private articleUrl;
+    // Hash for the associated article
+    bytes32 private articleHash;
 
     // Total size of edition that can be minted
     uint256 public editionSize;
@@ -76,10 +72,8 @@ contract SingleEditionMintable is
       @param _name Name of edition, used in the title as "$NAME NUMBER/TOTAL"
       @param _symbol Symbol of the new token contract
       @param _description Description of edition, used in the description field of the NFT
-      @param _imageUrl Image URL of the edition. Strongly encouraged to be used, if necessary, only animation URL can be used. One of animation and image url need to exist in a edition to render the NFT.
-      @param _imageHash SHA256 of the given image in bytes32 format (0xHASH). If no image is included, the hash can be zero.
-      @param _animationUrl Animation URL of the edition. Not required, but if omitted image URL needs to be included. This follows the opensea spec for NFTs
-      @param _animationHash The associated hash of the animation in sha-256 bytes32 format. If animation is omitted the hash can be zero.
+      @param _articleUrl Article URL of the edition. 
+      @param _articleHash SHA256 of the given article in bytes32 format (0xHASH). If no article is included, the hash can be zero.
       @param _editionSize Number of editions that can be minted in total. If 0, unlimited editions can be minted.
       @param _royaltyBPS BPS of the royalty set on the contract. Can be 0 for no royalty.
       @dev Function to create a new edition. Can only be called by the allowed creator
@@ -91,10 +85,8 @@ contract SingleEditionMintable is
         string memory _name,
         string memory _symbol,
         string memory _description,
-        string memory _animationUrl,
-        bytes32 _animationHash,
-        string memory _imageUrl,
-        bytes32 _imageHash,
+        string memory _articleUrl,
+        bytes32 _articleHash,
         uint256 _editionSize,
         uint256 _royaltyBPS
     ) public initializer {
@@ -103,10 +95,8 @@ contract SingleEditionMintable is
         // Set ownership to original sender of contract call
         transferOwnership(_owner);
         description = _description;
-        animationUrl = _animationUrl;
-        animationHash = _animationHash;
-        imageUrl = _imageUrl;
-        imageHash = _imageHash;
+        articleUrl = _articleUrl;
+        articleHash = _articleHash;
         editionSize = _editionSize;
         royaltyBPS = _royaltyBPS;
         // Set edition id start to be 1 not 0
@@ -224,11 +214,9 @@ contract SingleEditionMintable is
            Only URLs can be updated (data-uris are supported), hashes cannot be updated.
      */
     function updateEditionURLs(
-        string memory _imageUrl,
-        string memory _animationUrl
+        string memory _articleUrl
     ) public onlyOwner {
-        imageUrl = _imageUrl;
-        animationUrl = _animationUrl;
+        articleUrl = _articleUrl;
     }
 
     /// Returns the number of editions allowed to mint (max_uint256 when open edition)
@@ -273,19 +261,17 @@ contract SingleEditionMintable is
 
     /**
       @dev Get URIs for edition NFT
-      @return imageUrl, imageHash, animationUrl, animationHash
+      @return articleUrl, articleHash 
      */
     function getURIs()
         public
         view
         returns (
             string memory,
-            bytes32,
-            string memory,
             bytes32
         )
     {
-        return (imageUrl, imageHash, animationUrl, animationHash);
+        return (articleUrl, articleHash);
     }
 
     /**
@@ -321,8 +307,7 @@ contract SingleEditionMintable is
             sharedNFTLogic.createMetadataEdition(
                 name(),
                 description,
-                imageUrl,
-                animationUrl,
+                articleUrl,
                 tokenId,
                 editionSize
             );
