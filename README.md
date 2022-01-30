@@ -18,37 +18,13 @@
 
 ### Through a GUI:
 
-Rinkeby: https://edition-drop.vercel.app/?network=4
-
-Mainnet: https://edition-drop.vercel.app/?network=1
-
-Polygon: https://edition-drop.vercel.app/?network=137
-
-Mumbai: https://edition-drop.vercel.app/?network=80001
-
+In development~
 
 ### Where is the factory contract deployed:
-
-
-**Mainnet ETH**: [0x91A8713155758d410DFAc33a63E193AE3E89F909](https://etherscan.io/address/0x91A8713155758d410DFAc33a63E193AE3E89F909)
-
-note: ~ Deployed with 1.0.1 version of code. Missing public getter for description.
-
 
 **Rinkeby**: [0x95375717500EEcd0c8b27C6916291D70b655f8c5](https://rinkeby.etherscan.io/address/0x95375717500EEcd0c8b27C6916291D70b655f8c5)
 
 note: ~ Deployed with 1.0.1 version of code. Missing public getter for description.
-
-
-**Polygon**: [0x4500590AfC7f12575d613457aF01F06b1eEE57a3](https://polygonscan.com/address/0x4500590AfC7f12575d613457aF01F06b1eEE57a3)
-
-note: Deployed with 1.0.2 version of code with public getter for description.
-
-
-**Mumbai**: [0x773E5B82179E6CE1CdF8c5C0d736e797b3ceDDDC](https://mumbai.polygonscan.com/address/0x773E5B82179E6CE1CdF8c5C0d736e797b3ceDDDC)
-
-note: Deployed with 1.0.2 version of code with public getter for description.
-
 
 ### How do I create a new edition?
 
@@ -108,6 +84,3 @@ Now that you have a edition, there are multiple options for lazy-minting and sal
 * Unique Article Contract: https://rinkeby.etherscan.io/address/0x12dc54dd13D95919570De77266Bd6CEA05F36d10#code
 * Shared NFT Logic: https://rinkeby.etherscan.io/address/0x7dFa9011c344AE20C60d03D8A7cc0e69bD346c49
 
-### Bug Bounty
-5 ETH for any critical bugs that could result in loss of funds.
-Rewards will be given for smaller bugs or ideas.
