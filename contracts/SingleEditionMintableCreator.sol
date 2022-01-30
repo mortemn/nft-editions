@@ -37,8 +37,8 @@ contract SingleEditionMintableCreator {
     /// @param _name Name of the edition contract
     /// @param _symbol Symbol of the edition contract
     /// @param _description Metadata: Description of the edition entry
-    /// @param _articleUrl Metadata: Image url (semi-required) of the edition entry
-    /// @param _articleHash Metadata: SHA-256 hash of the Image of the edition entry (if not article, can be 0x0)
+    /// @param _articleUrl Metadata: Article url (semi-required) of the edition entry
+    /// @param _articleHash Metadata: SHA-256 hash of the Article of the edition entry (if not article, can be 0x0)
     /// @param _editionSize Total size of the edition (number of possible editions)
     /// @param _royaltyBPS BPS amount of royalty
     function createEdition(

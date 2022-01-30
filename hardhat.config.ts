@@ -8,6 +8,9 @@ import networks from "./networks";
 import dotenv from "dotenv";
 dotenv.config();
 
+const ALCHEMY_API_KEY = process.env.RINKEBY_RPC;
+const RINKEBY_PRIVATE_KEY = process.env.DEV_MNEMONIC;
+
 /**
  * Go to https://hardhat.org/config/ to learn more
  * @type import('hardhat/config').HardhatUserConfig
@@ -22,7 +25,14 @@ const config: HardhatUserConfig = {
     gasPrice: 60,
     coinmarketcap: process.env.COIN_MARKET_CAP,
   },
-  networks,
+  networks: {
+    rinkeby: {
+      url: ALCHEMY_API_KEY,
+      accounts: [`${RINKEBY_PRIVATE_KEY}`]
+    },
+    hardhat: {
+    }
+  },
   namedAccounts: {
     deployer: 0,
     purchaser: 0,
