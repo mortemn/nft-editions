@@ -1,4 +1,4 @@
-# NFT EDITIONS FORK FOR ARTICLES 
+# NFT EDITIONS FORK FOR APOCRYPHA 
 
 ### What are these contracts?
 1. `SingleEditionMintable`
