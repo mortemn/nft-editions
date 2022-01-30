@@ -38,8 +38,6 @@ describe("SingleEditionMintable", () => {
       "This is a testing token for all",
       "https://ipfs.io/ipfsbafybeify52a63pgcshhbtkff4nxxxp2zp5yjn2xw43jcy4knwful7ymmgy",
       "0x0000000000000000000000000000000000000000000000000000000000000000",
-      "",
-      "0x0000000000000000000000000000000000000000000000000000000000000000",
       // 1% royalty since BPS
       10,
       10
@@ -53,14 +51,10 @@ describe("SingleEditionMintable", () => {
     expect(await minterContract.name()).to.be.equal("Testing Token");
     expect(await minterContract.symbol()).to.be.equal("TEST");
     const editionUris = await minterContract.getURIs();
-    expect(editionUris[0]).to.be.equal("");
-    expect(editionUris[1]).to.be.equal(
-      "0x0000000000000000000000000000000000000000000000000000000000000000"
-    );
-    expect(editionUris[2]).to.be.equal(
+    expect(editionUris[0]).to.be.equal(
       "https://ipfs.io/ipfsbafybeify52a63pgcshhbtkff4nxxxp2zp5yjn2xw43jcy4knwful7ymmgy"
     );
-    expect(editionUris[3]).to.be.equal(
+    expect(editionUris[1]).to.be.equal(
       "0x0000000000000000000000000000000000000000000000000000000000000000"
     );
     expect(await minterContract.editionSize()).to.be.equal(10);
@@ -77,8 +71,6 @@ describe("SingleEditionMintable", () => {
         "TEST",
         "This is a testing token for all",
         "https://ipfs.io/ipfsbafybeify52a63pgcshhbtkff4nxxxp2zp5yjn2xw43jcy4knwful7ymmgy",
-        "0x0000000000000000000000000000000000000000000000000000000000000000",
-        "",
         "0x0000000000000000000000000000000000000000000000000000000000000000",
         10,
         10
@@ -124,7 +116,7 @@ describe("SingleEditionMintable", () => {
         JSON.stringify({
           name: "Testing Token 1/10",
           description: "This is a testing token for all",
-          animation_url:
+          article:
             "https://ipfs.io/ipfsbafybeify52a63pgcshhbtkff4nxxxp2zp5yjn2xw43jcy4knwful7ymmgy?id=1",
           properties: { number: 1, name: "Testing Token" },
         })
@@ -137,8 +129,6 @@ describe("SingleEditionMintable", () => {
         "TEST",
         "This is a testing token for all",
         "https://ipfs.io/ipfsbafybeify52a63pgcshhbtkff4nxxxp2zp5yjn2xw43jcy4knwful7ymmgy",
-        "0x0000000000000000000000000000000000000000000000000000000000000000",
-        "",
         "0x0000000000000000000000000000000000000000000000000000000000000000",
         0,
         0
@@ -199,7 +189,7 @@ describe("SingleEditionMintable", () => {
         JSON.stringify({
           name: "Testing Token 1",
           description: "This is a testing token for all",
-          animation_url:
+          article:
             "https://ipfs.io/ipfsbafybeify52a63pgcshhbtkff4nxxxp2zp5yjn2xw43jcy4knwful7ymmgy?id=1",
           properties: { number: 1, name: "Testing Token" },
         })
@@ -226,8 +216,6 @@ describe("SingleEditionMintable", () => {
           "test name",
           "SYM",
           "description",
-          "animation",
-          "0x0000000000000000000000000000000000000000000000000000000000000000",
           "uri",
           "0x0000000000000000000000000000000000000000000000000000000000000000",
           12,
@@ -288,8 +276,6 @@ describe("SingleEditionMintable", () => {
           "This is a testing token for all",
           "https://ipfs.io/ipfsbafybeify52a63pgcshhbtkff4nxxxp2zp5yjn2xw43jcy4knwful7ymmgy",
           "0x0000000000000000000000000000000000000000000000000000000000000000",
-          "",
-          "0x0000000000000000000000000000000000000000000000000000000000000000",
           // 2% royalty since BPS
           200,
           200
@@ -319,8 +305,6 @@ describe("SingleEditionMintable", () => {
         "TEST",
         "This is a testing token for all",
         "https://ipfs.io/ipfsbafybeify52a63pgcshhbtkff4nxxxp2zp5yjn2xw43jcy4knwful7ymmgy",
-        "0x0000000000000000000000000000000000000000000000000000000000000000",
-        "",
         "0x0000000000000000000000000000000000000000000000000000000000000000",
         0,
         0
@@ -385,7 +369,7 @@ describe("SingleEditionMintable", () => {
         JSON.stringify({
           name: "Testing Token 10/10",
           description: "This is a testing token for all",
-          animation_url:
+          article:
             "https://ipfs.io/ipfsbafybeify52a63pgcshhbtkff4nxxxp2zp5yjn2xw43jcy4knwful7ymmgy?id=10",
           properties: { number: 10, name: "Testing Token" },
         })

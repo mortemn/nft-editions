@@ -38,8 +38,6 @@ describe("SingleEditionMintable", () => {
       "This is a testing token for all",
       "https://ipfs.io/ipfsbafybeify52a63pgcshhbtkff4nxxxp2zp5yjn2xw43jcy4knwful7ymmgy",
       "0x0000000000000000000000000000000000000000000000000000000000000000",
-      "",
-      "0x0000000000000000000000000000000000000000000000000000000000000000",
       10,
       10
     );
@@ -71,7 +69,7 @@ describe("SingleEditionMintable", () => {
     expect(
       (await signer.getBalance())
         .sub(signerBalance)
-        .gte(ethers.utils.parseEther('0.19'))
+        .gte(ethers.utils.parseEther("0.19"))
     ).to.be.true;
   });
 });
